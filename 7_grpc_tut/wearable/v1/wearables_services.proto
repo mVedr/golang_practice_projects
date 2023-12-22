@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package wearable.v1;
+
+option go_package = "github.com/mVedr/grpc_tut/gen/go/user/v1;wearablepb";
+
+
+service WearableService{
+    rpc BeatsPerMinute(BeatsPerMinuteRequest) returns (stream BeatsPerMinuteResponse) {};
+}
+
+message BeatsPerMinuteRequest{
+    string uid = 1;
+}
+
+message BeatsPerMinuteResponse{
+    uint32 value = 1;
+    uint32 minute = 2;
+}
